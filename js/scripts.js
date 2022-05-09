@@ -1,3 +1,4 @@
+let pokemonRepository = (function() {
 let pokemonList = [
   {
     name: "Weedle",
@@ -20,6 +21,25 @@ let pokemonList = [
     type: ["fairy", "balloon"]
   }
 ];
-pokemonList.forEach(function(item) {
-  document.write('<p>' + 'Name: ' + ' ' + item.name + ' ' + 'Height: ' + item.height + '</p>')
-});
+
+return {
+  add: function(item) {
+    pokemonList.push(item);
+  },
+  getAll: function() {
+    return pokemonList;
+  }
+};
+})();
+console.log(pokemonRepository.getAll());
+pokemonRepository.add({ name: 'Parasect', height: 3.03, type: 'Mushroom' });
+console.log(pokemonRepository.getAll());
+
+
+pokemonRepository.getAll().forEach(function(item) {
+  if (item.height > 3) {
+    document.write('<p>' + 'Name: ' + item.name + ' ' + 'Height: ' + item.height + ' ' + 'Thats a big pokemon!!' + '</p>');
+  }
+    else {
+      document.write('<p>' + 'Name: ' + item.name + ' ' + 'Height: ' + item.height + '</p>');
+    }});
