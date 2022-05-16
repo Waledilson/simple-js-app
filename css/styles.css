@@ -1,6 +1,30 @@
+/*
+backgroud color - #65bae0
+button background color - #65bad2
+button border color - #9ad3e3
+
+*/
 body {
   font-size: 16px;
   font-family: 'Cabin', sans-serif;
   color: #e7e7ca;
-  background-color: teal;
+  background-color: #65bae0;
+}
+/* pokemon list button array */
+.button-class {
+  background-color: #65bad2;
+  border-top: solid #65bad2;
+  border-left: #65bad2;
+  border-right: #65bad2;
+  border-bottom: solid #9ad3e3;
+  color: black;
+  margin: 2px, left;
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+  width: 20%;
+}
+
+.pokemon-list {
+  list-style-type: none;
 }
