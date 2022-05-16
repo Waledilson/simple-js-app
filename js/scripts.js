@@ -21,25 +21,42 @@ let pokemonList = [
     type: ["fairy", "balloon"]
   }
 ];
-
-return {
-  add: function(item) {
-    pokemonList.push(item);
-  },
-  getAll: function() {
+//adds pokemon to existing pokemon array
+  function add(pokemon) {
+    pokemonList.push(pokemon);
+  }
+  function getAll() {
     return pokemonList;
   }
-};
-})();
+//function to display pokemon name in console
+  function showDetails(pokemon) {
+  console.log(pokemon.name);
+}
+//creates pokemon list in individual buttons
+  function addListItem(pokemon){
+    let listPokemon = document.querySelector('.pokemon-list');
+    let listCharacter = document.createElement("li");
+    let button  = document.createElement("button");
+    button.innerText = pokemon.name;
+    button.classList.add("button-class");
+    listCharacter.appendChild(button);
+    listPokemon.appendChild(listCharacter);
+    button.addEventListener('click', function() {
+      showDetails(pokemon);
+    });
+  }
+  return {
+    getAll: getAll,
+    add: add,
+    addListItem: addListItem
+  };
+}
+)();
+
 console.log(pokemonRepository.getAll());
 pokemonRepository.add({ name: 'Parasect', height: 3.03, type: 'Mushroom' });
 console.log(pokemonRepository.getAll());
 
-
-pokemonRepository.getAll().forEach(function(item) {
-  if (item.height > 3) {
-    document.write('<p>' + 'Name: ' + item.name + ' ' + 'Height: ' + item.height + ' ' + 'Thats a big pokemon!!' + '</p>');
-  }
-    else {
-      document.write('<p>' + 'Name: ' + item.name + ' ' + 'Height: ' + item.height + '</p>');
-    }});
+pokemonRepository.getAll().forEach(function(pokemon) {
+    pokemonRepository.addListItem(pokemon);
+});
