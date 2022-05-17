@@ -1,26 +1,6 @@
 let pokemonRepository = (function() {
-let pokemonList = [
-  {
-    name: "Weedle",
-    height: 1,
-    type: ["bug","poison"]
-  },
-  {
-    name: "Raticate",
-    height: 2.04,
-    type: ["mouse"]
-  },
-  {
-    name: "Weepinbell",
-    height: 3.03,
-    type: ["grass", "poison"]
-  },
-  {
-    name: "Jigglypuff",
-    height: 1.08,
-    type: ["fairy", "balloon"]
-  }
-];
+let pokemonList = [];
+let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
 //adds pokemon to existing pokemon array
   function add(pokemon) {
     pokemonList.push(pokemon);
@@ -30,7 +10,9 @@ let pokemonList = [
   }
 //function to display pokemon name in console
   function showDetails(pokemon) {
-  console.log(pokemon.name);
+    loadDetails(pokemon).then(function () {
+  console.log(pokemon);
+});
 }
 //creates pokemon list in individual buttons
   function addListItem(pokemon){
@@ -45,18 +27,47 @@ let pokemonList = [
       showDetails(pokemon);
     });
   }
+  //function to load list of pokemon from 'pokeapi'
+  function loadList() {
+    return fetch(apiUrl).then(function (response) {
+      return response.json();
+    }).then(function(json) {
+      json.results.forEach(function (item) {
+        let pokemon = {
+          name: item.name,
+          detailsUrl: item.url
+        };
+        add(pokemon);
+      });
+    }).catch(function (e) {
+      console.error(e);
+    });
+  }
+//function to load pokemon name, height, type from pokeapi
+    function loadDetails(item) {
+      let url = item.detailsUrl;
+      return fetch(url).then(function (response) {
+        return response.json();
+      }).then(function (details) {
+        item.imageUrl = details.sprites.front_default;
+        item.height = details.height;
+        item.type = details.types;
+      }).catch(function (e) {
+        console.error(e);
+      });
+    }
   return {
     getAll: getAll,
     add: add,
+    loadList: loadList,
+    loadDetails: loadDetails,
     addListItem: addListItem
   };
-}
-)();
 
-console.log(pokemonRepository.getAll());
-pokemonRepository.add({ name: 'Parasect', height: 3.03, type: 'Mushroom' });
-console.log(pokemonRepository.getAll());
+})();
 
+pokemonRepository.loadList().then(function() {
 pokemonRepository.getAll().forEach(function(pokemon) {
     pokemonRepository.addListItem(pokemon);
+  });
 });
