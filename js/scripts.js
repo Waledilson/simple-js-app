@@ -27,11 +27,24 @@ let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
       showDetails(pokemon);
     });
   }
+
+  function showLoadMessage(hide) {
+    let loader = document.querySelector('.loader')
+    if (hide) {
+      loader.classList.add('hidden');
+    }
+    else {
+      loader.classList.remove('hidden');
+    }
+    }
+
   //function to load list of pokemon from 'pokeapi'
   function loadList() {
+    showLoadMessage(false);
     return fetch(apiUrl).then(function (response) {
       return response.json();
     }).then(function(json) {
+      showLoadMessage(true);
       json.results.forEach(function (item) {
         let pokemon = {
           name: item.name,
@@ -40,19 +53,23 @@ let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
         add(pokemon);
       });
     }).catch(function (e) {
+      showLoadMessage(true);
       console.error(e);
     });
   }
 //function to load pokemon name, height, type from pokeapi
     function loadDetails(item) {
+      showLoadMessage(false);
       let url = item.detailsUrl;
       return fetch(url).then(function (response) {
+        showLoadMessage(true);
         return response.json();
       }).then(function (details) {
         item.imageUrl = details.sprites.front_default;
         item.height = details.height;
         item.type = details.types;
       }).catch(function (e) {
+        showLoadMessage(true);
         console.error(e);
       });
     }
