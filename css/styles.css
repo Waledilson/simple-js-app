@@ -27,6 +27,10 @@ body {
   cursor: pointer;
   width: 20%;
 }
+.button-class:hover {
+  color: white;
+  opacity: 50%;
+}
 /*modal box styling*/
 #modal-container.is-visible {
   position: fixed;
