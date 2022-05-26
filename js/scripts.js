@@ -83,9 +83,10 @@ let pokemonRepository = (function() {
     button.addEventListener('click', (event) => showDetails(pokemon));
   }
 
+//modal function
 
   function showModal(pokemon) {
-    modalContainer.innertHTML = '';
+    modalContainer.innerHTML = '';
 
     let modal = document.createElement('div');
     modal.classList.add('modal');
@@ -95,24 +96,21 @@ let pokemonRepository = (function() {
     closeButtonElement.innerText = 'Exit Pokemon';
     closeButtonElement.addEventListener('click', hideModal);
 
-    let nameElement = document.querySelector('h1');
+    let nameElement = document.createElement('h1');
     nameElement.innerText = pokemon.name;
 
     let heightElement = document.createElement('p');
-    heightElement.innerText = pokemon.height;
+    heightElement.innerText = ("Pokemon Height: " + pokemon.height);
 
-    let typeElement = document.createElement('p');
-    typeElement.innerText = pokemon.type;
 
     let imageElement = document.createElement('img');
     imageElement.src = pokemon.imageUrl;
     imageElement.classList.add('pokemon-image');
-    imageElement.setAttribute('src', 'image of' + pokemon.name);
+
 
     modal.appendChild(closeButtonElement);
     modal.appendChild(nameElement);
     modal.appendChild(heightElement);
-    modal.appendChild(typeElement);
     modal.appendChild(imageElement);
     modalContainer.appendChild(modal);
 
