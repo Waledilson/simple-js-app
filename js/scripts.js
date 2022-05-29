@@ -93,7 +93,7 @@ let pokemonRepository = (function() {
 
     let closeButtonElement = document.createElement('button');
     closeButtonElement.classList.add('modal-close');
-    closeButtonElement.innerText = 'Exit Pokemon';
+    closeButtonElement.innerText = 'X';
     closeButtonElement.addEventListener('click', hideModal);
 
     let nameElement = document.createElement('h1');
@@ -129,7 +129,7 @@ let pokemonRepository = (function() {
     //exit modal when click outside of the modal box
     modalContainer.addEventListener('click', (e) => {
       let target = e.target;
-      if (target === modalContainer) {
+      if(target === modalContainer) {
         hideModal();
       }
     });
