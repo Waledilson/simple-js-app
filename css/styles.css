@@ -18,6 +18,8 @@ body {
 }
 /* pokemon list button array */
 .button-class {
+  margin-left: 40%;
+  margin-right: 40%;
   display: grid;
   font-size: 16px;
   background-color: #65bad2;
@@ -26,11 +28,10 @@ body {
   border-right: #65bad2;
   border-bottom: solid #9ad3e3;
   color: black;
-  margin: 2px, left;
   padding: 5px;
   text-align: center;
   cursor: pointer;
-  width: 50%;
+  width: 20%;
 
 /* lines on either sides of button when hovering*/
 }
@@ -59,13 +60,13 @@ body {
   display: grid;
   text-align: center;
 }
-#modal-container {
-  display: none;
-}
+
 
 #modal-container {
   display: block;
-
+}
+#modal-container {
+  display: none;
 }
 
 /* modal styling*/
@@ -74,9 +75,9 @@ body {
   display: inline-block;
   box-sizing: border-box;
   background: #C9BFB6;
-  padding: 15px;
-  width: 70%;
-  height: 70%;
+  padding: 5px;
+  width: 50%;
+  height: 50%;
   max-width: 700px;
   text-align: left;
 }
@@ -88,25 +89,27 @@ body {
 }
 
 .modal p {
+  text-align: center;
   margin-bottom: 0;
   color: black;
 }
 
 .modal-close {
+  color: black;
   float: right;
   background-color: #C9BFB6;
+  border: none;
 }
 .modal-close:hover {
+  color: teal;
   background-color: #ffdec2;
+  border-radius: 50%;
 }
 
 .pokemon-image {
   display: block;
-  margin-left: auto;
-  margin-right: auto;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  width: 50%;
+  margin: auto;
+  /*width: 50%;*/
 }
 
 .pokemon-list {
