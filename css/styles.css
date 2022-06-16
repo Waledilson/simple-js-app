@@ -7,6 +7,10 @@ body {
   font-family: 'Cabin', sans-serif;
 }
 
+.page-container {
+  margin-top: 50px;
+}
+
 /* pokemon list button array */
 .button-class {
   margin-left: 40%;
