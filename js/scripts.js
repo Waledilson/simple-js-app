@@ -2,7 +2,7 @@ let pokemonRepository = (function() {
   //pokemon list
   let pokemonList = [];
   //let modalContainer = document.querySelector('#modal-container');
-  let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=20';
+  let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=50';
 
   //adds pokemon to existing pokemon array
   function add(pokemon) {
@@ -27,7 +27,7 @@ let pokemonRepository = (function() {
     buttonItem.classList.add('bg-dark');
     buttonItem.setAttribute('data-toggle', 'modal');
     buttonItem.setAttribute('data-target', '.modal')
-    listCharacter.classList.add('list-group-item', 'bg-dark');
+    listCharacter.classList.add('group-list-item', 'bg-dark');
     listCharacter.appendChild(buttonItem);
     listPokemon.appendChild(listCharacter);
   }
@@ -105,7 +105,7 @@ let pokemonRepository = (function() {
     modalBody.empty();
 
     let nameElement = $("<h1>" + pokemon.name + "</h1>");
-    let imageElement = $('<img class="modal-image" style="width: 50%">');
+    let imageElement = $('<img class="modal-image" style="width: 50%" alt="picture of selected pokemon">');
     imageElement.attr("src", pokemon.imageUrl);
     let heightElement = $("<p>" + "height: " + pokemon.height + "</p>");
 
