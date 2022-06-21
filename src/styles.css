@@ -7,14 +7,15 @@ body {
   font-family: 'Cabin', sans-serif;
 }
 
-/*.page-container {
+.page-container {
   margin-top: 50px;
 }
 
 /* pokemon list button array */
 .button-class {
-  display: grid;
+  display: inline-block;
   font-size: 18px;
+  padding: 5px;
   text-align: center;
   cursor: pointer;
   width: 40%;
@@ -29,6 +30,10 @@ border-right-color: orange;
 border-left-color: orange;
 color: orange;
 border-radius: 0%;
+}
+
+.button-class:focus {
+  box-shadow: none !important;
 }
 
 /* modal styling*/
@@ -62,6 +67,8 @@ border-radius: 0%;
 }
 
 .pokemon-list {
+  display: grid;
+  text-align: center;
   margin-top: 50px;
   list-style-type: none;
 }
