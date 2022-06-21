@@ -7,20 +7,17 @@ body {
   font-family: 'Cabin', sans-serif;
 }
 
-.page-container {
+/*.page-container {
   margin-top: 50px;
 }
 
 /* pokemon list button array */
 .button-class {
-  margin-left: 40%;
-  margin-right: 40%;
   display: grid;
   font-size: 18px;
-  padding: 5px;
   text-align: center;
   cursor: pointer;
-  width: 20%;
+  width: 40%;
   color: orange;
 }
 
