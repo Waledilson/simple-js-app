@@ -1,4 +1,7 @@
-Pokedex app
+Pokedex app<br>
+https://waledilson.github.io/simple-js-app/
+<br>
+<br>
 
 About<br>
 This app uses the HTML, CSS, Bootstrap and Javascript including jQuery throughout to showcase the different tools and ideas i've learned during this achievement.<br>
